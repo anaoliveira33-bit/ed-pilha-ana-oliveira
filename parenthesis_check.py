@@ -32,6 +32,10 @@ while start:
         print('\n[ATENÇÃO] O input inserido deve ter mais de um caractere.\n')
         continue
 
-    print(is_input_valid(user_input))
+    if(is_input_valid(user_input)):
+        print('Os parênteses estão balanceados!\n')
+    else:
+        print('Os não parênteses estão balanceados :(\n')
+
     decision = input('Finalizar programa (S/N): ').upper()
     start = decision != 'S'
