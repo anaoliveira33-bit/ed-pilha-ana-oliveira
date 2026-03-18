@@ -18,3 +18,6 @@ class Stack:
         self.topo = self.topo.next
         self._size = self._size - 1
         return removed.data
+    
+    def __len__(self):
+        return self._size

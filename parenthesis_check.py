@@ -5,22 +5,15 @@ start = True
 def is_input_valid(input):
     pilha = Stack()
     formatted_input = input.replace(" ", "")
-    half = int(len(formatted_input)/2)
+    for x in formatted_input:
+        if x == "(":
+            pilha.push(x)
+        elif x == ")":
+            if len(pilha) == 0:
+                return False
+            pilha.pop()
 
-    half_a = formatted_input[:half]
-    half_b = formatted_input[half:]
-
-    count_a = 0
-    count_b = 0
-
-    for x in half_a:
-        if (x == '(' or x == ')' ):
-            count_a += 1
-    for x in half_b:
-        if (x == '(' or x == ')' ):
-            count_b += 1
-
-    return count_a == count_b
+    return len(pilha) == 0
 
 while start:
     user_input = input('Insira uma expressão utilizando parênteses: ')
